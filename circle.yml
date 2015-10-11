@@ -1,21 +1,17 @@
 machine:
   java:
-    version: openjdk7
-  ruby:
-   version: 2.1.1
+      version: openjdk7
   environment:
-    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+      GRADLE_OPTS: -Xmx512m -XX:MaxPermSize=512m
 
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter platform-tools,tools,android-23,build-tools-23.0.1,extra-android-m2repository,extra-android-support,extra-google-m2repository
-
+    - echo y | android update sdk --no-ui --all --filter extra-android-m2repository,extra-android-support
     - chmod +x gradlew
-
   cache_directories:
     - ~/.android
     - ~/.gradle
-    - ~/.rvm/gems/ruby-2.1.1
+
   override:
     - ./gradlew dependencies
 
