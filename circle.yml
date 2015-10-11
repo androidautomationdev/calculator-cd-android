@@ -25,5 +25,5 @@ test:
 
 general:
   artifacts:
-    - "**/**/build/outputs/apk"
-    - "**/**/build/outputs/mapping/**/**/mapping.txt"
+    - "**/build/outputs/apk"
+    - "**/build/outputs/mapping/**/**/mapping.txt"
