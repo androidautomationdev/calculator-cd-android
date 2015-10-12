@@ -19,10 +19,10 @@ dependencies:
 test:
   override:
     - $ANDROID_HOME/tools/emulator -avd testing -no-window -no-boot-anim -no-audio:
-    - ./gradlew test --stacktrace;
-    - ./gradlew assembleDebug --stacktrace;
                     background: true
                     parallel: true
+    - ./gradlew test --stacktrace;
+    - ./gradlew assembleDebug --stacktrace;
     - bin/android-wait-for-emulator
     - ./gradlew assembleDebugAndroidTest --stacktrace
 
