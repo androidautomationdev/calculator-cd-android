@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorEngineL
 
     @Override
     public void updateResult(String value) {
-        textView.setText(value);
+        textView.setText("Result is: " + value);
     }
 
     private class ButtonHolder {
