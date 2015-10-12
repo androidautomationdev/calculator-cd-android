@@ -30,4 +30,4 @@ deployment:
   master:
     branch: master
     commands:
-      - ./hockey.sh
+      - ./deploy.sh
