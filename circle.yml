@@ -25,3 +25,9 @@ general:
   artifacts:
     - "**/build/outputs/apk"
     - "**/build/outputs/mapping/**/**/mapping.txt"
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./hockey.sh

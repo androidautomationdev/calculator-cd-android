@@ -8,8 +8,8 @@ android {
         applicationId "com.paveljacko.calculator"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode computeVersionCode()
+        versionName computeVersionName()
     }
     buildTypes {
         release {
@@ -24,4 +24,31 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:1.+"
     compile 'com.android.support:appcompat-v7:23.0.1'
+}
+
+def computeVersionCode() {
+    try {
+        def p = Runtime.getRuntime().exec("git rev-list --all --count")
+
+        def result = p.waitFor()
+        if (result != 0) {
+            return 0 // no git revisions
+        }
+        return p.getInputStream().readLines().get(0).toInteger()
+    } catch (ignored) {
+        return 0;
+    }
+}
+
+def computeVersionName() {
+    def command = Runtime.getRuntime().exec("git rev-parse --short HEAD")
+    def result = command.waitFor()
+    return (result == 0) ? computeVersionCode() + "-" + command.inputStream.text.trim() : "nogit"
+}
+
+task printVersion() {
+    print "\n**************** MOBILE BUILD VERSION ***********\n";
+    print "Version Code: " + computeVersionCode() + "\n";
+    print "Version Name: " + computeVersionName() + "\n";
+    print "*************************************************\n\n"
 }
