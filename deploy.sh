@@ -4,8 +4,6 @@ NOTES="Build uploaded via the upload API"
 
 echo "Downloading File..."
 echo "Archives: ${CIRCLE_ARTIFACTS}"
-https://circle-artifacts.com/gh/androidautomationdev/calculator-cd-android/${CIRCLE_BUILD_NUM}/artifacts/0/home/ubuntu/calculator-cd-android/app/build/outputs/apk/app-debug.apk
-
 
 if [ "$1" ]
 then
