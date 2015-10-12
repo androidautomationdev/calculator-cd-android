@@ -23,8 +23,7 @@ test:
                     parallel: true
     - ./gradlew test --stacktrace;
     - ./gradlew assembleDebug --stacktrace;
-    - bin/android-wait-for-emulator
-    - ./gradlew assembleDebugAndroidTest --stacktrace
+    - ./gradlew assembleDebugAndroidTest --stacktrace;
 
 general:
   artifacts:
